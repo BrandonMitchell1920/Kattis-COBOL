@@ -1,0 +1,18 @@
+IDENTIFICATION DIVISION.
+    PROGRAM-ID. SimonSays.
+    AUTHOR. Brandon Mitchell.
+    
+DATA DIVISION.  
+    WORKING-STORAGE SECTION.
+        01 CASES PIC 9(4).
+        01 SIMON PIC X(100).
+        
+PROCEDURE DIVISION.
+    ACCEPT CASES
+    PERFORM CASES TIMES
+        ACCEPT SIMON
+        IF SIMON(1:10) EQUALS "Simon says"
+            DISPLAY SIMON(11:)
+        END-IF
+    END-PERFORM
+    STOP RUN.

@@ -1,0 +1,38 @@
+IDENTIFICATION DIVISION.
+    PROGRAM-ID. FizzBuzz.
+    AUTHOR. Brandon Mitchell.
+    
+DATA DIVISION.  
+    WORKING-STORAGE SECTION.
+        01 INP PIC X(20).
+        01 X PIC 999.
+        01 Y PIC 999.
+        01 N PIC 999.
+        01 R1 PIC 999.
+        01 R2 PIC 999.
+        01 TSH PIC 999.
+        01 CNT PIC 999 VALUE ZEROS.
+        01 FRM PIC ZZ9.
+
+PROCEDURE DIVISION.
+    ACCEPT INP
+    UNSTRING INP DELIMITED BY SPACE INTO X, Y, N
+    PERFORM N TIMES
+        ADD 1 TO CNT
+        DIVIDE CNT BY X GIVING TSH REMAINDER R1
+        DIVIDE CNT BY Y GIVING TSH REMAINDER R2
+        IF R1 EQUAL ZERO AND R2 EQUAL ZERO 
+            DISPLAY "FizzBuzz"
+        END-IF
+        IF R1 EQUAL ZERO AND R2 NOT EQUAL ZERO
+            DISPLAY "Fizz"
+        END-IF
+        IF R1 NOT EQUAL ZERO AND R2 EQUAL ZERO
+            DISPLAY "Buzz"
+        END-IF        
+        IF R1 NOT EQUAL ZERO AND R2 NOT EQUAL ZERO
+            MOVE CNT TO FRM
+            DISPLAY FRM
+        END-IF        
+    END-PERFORM
+    STOP RUN.

@@ -1,0 +1,18 @@
+IDENTIFICATION DIVISION.
+    PROGRAM-ID. HissingMicrophone.
+    AUTHOR. Brandon Mitchell.
+    
+DATA DIVISION.  
+    WORKING-STORAGE SECTION.
+        01 INP PIC X(30).
+        01 HISS PIC 99 VALUE ZERO.
+
+PROCEDURE DIVISION.
+    ACCEPT INP
+    INSPECT INP TALLYING HISS FOR ALL "ss"
+    IF HISS IS NOT ZERO
+        DISPLAY "hiss"
+    ELSE
+        DISPLAY "no hiss"
+    END-IF
+    STOP RUN.
